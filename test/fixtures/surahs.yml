@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serial_number: 1
+  place_of_revealed: MyString
+  verses: 1
+  recited: 1
+  due: 1
+  status: MyString
+  full_recite_count: 1
+  starting_date: 2024-06-13 16:16:01
+  completion_date: 2024-06-13 16:16:01
+
+two:
+  serial_number: 1
+  place_of_revealed: MyString
+  verses: 1
+  recited: 1
+  due: 1
+  status: MyString
+  full_recite_count: 1
+  starting_date: 2024-06-13 16:16:01
+  completion_date: 2024-06-13 16:16:01

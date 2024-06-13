@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @surah %>
+<!--<div style="word-wrap: break-word">-->
+  <%#= @surah_info.inspect %>
+<!--</div>-->
+
+
+<div>
+  <%= link_to "Edit this surah", edit_surah_path(@surah), class: "btn btn-primary" %> |
+  <%= link_to "Back to surahs", surahs_path, class: "btn btn-success" %>
+
+  <%#= button_to "Destroy this surah", @surah, method: :delete %>
+</div>

@@ -1,0 +1,47 @@
+<%= form_with(model: surah) do |form| %>
+  <% if surah.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(surah.errors.count, "error") %> prohibited this surah from being saved:</h2>
+
+      <ul>
+        <% surah.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :recited, style: "display: block" %>
+    <%= form.number_field :recited, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :due, style: "display: block" %>
+    <%= form.number_field :due, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :full_recite_count, style: "display: block" %>
+    <%= form.number_field :full_recite_count, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :starting_date, style: "display: block" %>
+    <%= form.datetime_field :starting_date, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :completion_date, style: "display: block" %>
+    <%= form.datetime_field :completion_date, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

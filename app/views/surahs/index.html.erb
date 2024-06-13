@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+
+<!--<h1>Surah</h1>-->
+
+<%= link_to "Import Surah", import_surahs_path, class: "btn btn-sm btn-primary" if Surah.count == 0 %>
+
+<div id="surahs">
+  <div class="row">
+    <% @surahs.each do |surah| %>
+        <div class="col-md-3 mb-3">
+          <div class="card shadow-sm" style="cursor: pointer">
+            <div class="card-body" onclick="displaySurahForm(<%= surah.id %>)">
+              <%= link_to surah, class: "text-decoration-none" do %>
+                <b><%= surah.serial_number %>. <%= surah.name %></b>
+              <% end %>
+              <small class="d-block text-right text-secondary"><%= surah.verses %> Ayahs</small>
+              <div id="surah-<%= surah.id %>-form" style="display: none" class="surah-form">
+                <%= render "form", surah: surah %>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="application/javascript">
+    function displaySurahForm(surah_id) {
+        let other_forms = document.getElementsByClassName("surah-form");
+        for (let i = 0; i < other_forms.length; i++) {
+            console.log("other_forms[i] = ", other_forms[i]);
+            other_forms[i].style.display = "none";
+        }
+        console.log("surah: ", surah_id);
+        let form = document.getElementById(`surah-${surah_id}-form`);
+        console.log("form = ", form);
+        if (form) {
+            if (form.style.display === "block") {
+                form.style.display = "none";
+            } else {
+                form.style.display = "block";
+            }
+        }
+    }
+</script>
