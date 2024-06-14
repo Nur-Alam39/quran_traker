@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8e7ddd6b-e600-4af6-8ea6-ffdd15f995f9" name="Changes" comment="added surah">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/surahs_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/surahs_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/surahs_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/surahs_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/surah.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/surah.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/surahs/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/surahs/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/surahs/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/surahs/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/surahs/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/surahs/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/surahs/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/surahs/show.html.erb" afterDir="false" />
     </list>
     <list id="b6023264-5b7e-4f22-9de7-475907e18791" name="Changes 1" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,22 +51,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Rails.quran_tracker.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mahabub/Development/self/quran_tracker&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Rails.quran_tracker.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/mahabub/Development/self/quran_tracker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ruby.structure.view.model.defaults.configured": "true",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RubyModuleManagerSettings">
     <option name="blackListedRootsPaths">
       <list>
@@ -315,7 +326,9 @@
       <updated>1718262453030</updated>
       <workItem from="1718262454535" duration="5984000" />
       <workItem from="1718273185753" duration="1270000" />
-      <workItem from="1718274567319" duration="7302000" />
+      <workItem from="1718274567319" duration="8214000" />
+      <workItem from="1718338696338" duration="556000" />
+      <workItem from="1718341153532" duration="13161000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -333,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718272087527</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added surah">
+      <option name="closed" value="true" />
+      <created>1718283266212</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718283266212</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,9 +374,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="added surah" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="LAST_COMMIT_MESSAGE" value="added surah" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/quran_tracker@quran_tracker.rcov" NAME="quran_tracker Coverage Results" MODIFIED="1718282596262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="quran_tracker" />
+    <SUITE FILE_PATH="coverage/quran_tracker@quran_tracker.rcov" NAME="quran_tracker Coverage Results" MODIFIED="1718348367832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="quran_tracker" />
   </component>
 </project>

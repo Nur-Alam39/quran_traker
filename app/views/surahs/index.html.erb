@@ -1,24 +1,49 @@
-<p style="color: green"><%= notice %></p>
-
-<!--<h1>Surah</h1>-->
+<!--<p style="color: green"><%#= notice %></p>-->
 
 <%= link_to "Import Surah", import_surahs_path, class: "btn btn-sm btn-primary" if Surah.count == 0 %>
 
 <div id="surahs">
   <div class="row">
     <% @surahs.each do |surah| %>
-        <div class="col-md-3 mb-3">
-          <div class="card shadow-sm" style="cursor: pointer">
-            <div class="card-body" onclick="displaySurahForm(<%= surah.id %>)">
-              <%= link_to surah, class: "text-decoration-none" do %>
-                <b><%= surah.serial_number %>. <%= surah.name %></b>
-              <% end %>
-              <small class="d-block text-right text-secondary"><%= surah.verses %> Ayahs</small>
-              <div id="surah-<%= surah.id %>-form" style="display: none" class="surah-form">
-                <%= render "form", surah: surah %>
+        <div class="col-md-4 mb-3">
+          <%#= link_to edit_surah_path(surah), class: "text-decoration-none" do %>
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="fw-bold d-flex align-items-center">
+                      <h4><span class="badge text-bg-light mb-0"><%= surah.serial_number %></span></h4>
+                      <b>&nbsp;<%= surah.name %></b>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <span class="badge text-secondary" title="<%= surah.place_of_revealed %>">
+                        <%= image_tag "#{surah.place_of_revealed.downcase}.png", style: "height: 20px" %>
+                      </span>
+                      <small class="d-block text-right text-secondary">
+                        <%= surah.verses %> Ayahs
+                      </small>
+                    </div>
+                    <div><%= recite_status(surah).html_safe %></div>
+                  </div>
+                  <div class="col-md-5">
+                    <div>
+                      <%= form_with(model: surah, remote: true) do |form| %>
+                        <div class="form-floating mb-3">
+                          <%= form.number_field :recited, min: 0, max: surah.verses, class: "form-control" %>
+                          <label for="surah_recited">Last read ayah</label>
+                        </div>
+                      <% end %>
+                    </div>
+                    <small><i class="fa-solid fa-circle-half-stroke"></i> <%= surah.verses - surah.recited %> ayahs</small><br>
+                    <small>Read <%= surah.full_recite_count %> time(s)</small>
+                  </div>
+                </div>
+                <% if surah.full_recite_count > 0 || surah.recited > 0 %>
+                  <small class="text-secondary"><i class="fa-solid fa-clock-rotate-left"></i> <%= surah.updated_at.strftime("%d %b %y at %I:%M %p") %></small>
+                <% end %>
               </div>
             </div>
-          </div>
+          <%# end %>
         </div>
     <% end %>
   </div>
@@ -40,6 +65,8 @@
             } else {
                 form.style.display = "block";
             }
+
+            form.style.display = "block";
         }
     }
 </script>

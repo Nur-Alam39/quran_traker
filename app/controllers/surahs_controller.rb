@@ -48,11 +48,26 @@ class SurahsController < ApplicationController
     end
   end
 
+  def update_recitation
+    @surah = Surah.find(params[:id])
+    respond_to do |format|
+      if @surah.update(surah_params)
+        if @surah.verses == @surah.recited
+          @surah.update_attribute(:full_recite_count, @surah.full_recite_count + 1)
+          format.json { render :show, status: :ok, location: @surah }
+        end
+      end
+    end
+  end
+
   # PATCH/PUT /surahs/1 or /surahs/1.json
   def update
     respond_to do |format|
       if @surah.update(surah_params)
-        format.html { redirect_to surah_url(@surah), notice: "Surah was successfully updated." }
+        if @surah.verses == @surah.recited
+          @surah.update_attribute(:full_recite_count, @surah.full_recite_count + 1)
+        end
+        format.html { redirect_to surahs_url, notice: "Surah was successfully updated." }
         format.json { render :show, status: :ok, location: @surah }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -1216,7 +1231,7 @@ class SurahsController < ApplicationController
         }
       ]
 
-      surahs.each do |surah|
+      surahs.reverse.each do |surah|
         Surah.create(surah)
       end
     else
