@@ -5,7 +5,7 @@
 <div id="surahs">
   <div class="row">
     <% @surahs.each do |surah| %>
-        <div class="col-md-4 mb-3">
+        <div class="col-sm-6 col-lg-4 mb-3">
           <%#= link_to edit_surah_path(surah), class: "text-decoration-none" do %>
             <div class="card shadow-sm h-100">
               <div class="card-body">
@@ -23,7 +23,7 @@
                         <%= surah.verses %> Ayahs
                       </small>
                     </div>
-                    <div><%= recite_status(surah).html_safe %></div>
+                    <div class="mb-2"><%= recite_status(surah).html_safe %></div>
                   </div>
                   <div class="col-md-5">
                     <div>

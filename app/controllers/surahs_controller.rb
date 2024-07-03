@@ -1242,6 +1242,13 @@ class SurahsController < ApplicationController
     render :nothing => true
   end
 
+  def summary
+    total = Surah.sum("verses")
+    recited = Surah.sum("recited")
+    due = total - recited
+    @recite_state = { "Unread" => due, "Recited" => recited}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_surah
